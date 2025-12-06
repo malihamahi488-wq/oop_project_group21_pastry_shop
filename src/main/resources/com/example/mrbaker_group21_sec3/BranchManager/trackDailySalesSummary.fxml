@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.example.com_oop_project_group21_pastryshop.BranchManager.TrackDailySalesSummaryController"
+            prefWidth="900.0" prefHeight="600.0">
+
+    <VBox spacing="12" AnchorPane.topAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.bottomAnchor="0" style="-fx-padding:16;">
+        <Label text="Daily Sales Summary" style="-fx-font-size:20px; -fx-font-weight:bold;" />
+
+        <!-- Controls row -->
+        <HBox spacing="10" alignment="CENTER_LEFT">
+            <Label text="Select Date:"/>
+            <DatePicker fx:id="datePicker" />
+            <Button text="Load Summary" onAction="#onLoadSummary" />
+            <Region HBox.hgrow="ALWAYS" />
+            <Button text="Export PDF" fx:id="exportPdfBtn" onAction="#onExportPdf" />
+            <Button text="Export Excel" fx:id="exportExcelBtn" onAction="#onExportExcel" />
+            <Button text="Refresh" onAction="#onRefresh" />
+        </HBox>
+
+        <!-- Summary grid -->
+        <GridPane hgap="24" vgap="12" style="-fx-padding:8;">
+            <columnConstraints>
+                <ColumnConstraints halignment="RIGHT" minWidth="180"/>
+                <ColumnConstraints halignment="LEFT" minWidth="340"/>
+            </columnConstraints>
+
+            <Label text="Total Revenue:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+            <Label fx:id="lblTotalRevenue" text="0.00" GridPane.rowIndex="0" GridPane.columnIndex="1" style="-fx-font-size:16px; -fx-font-weight:bold;"/>
+
+            <Label text="Total Items Sold:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+            <Label fx:id="lblItemsSold" text="0" GridPane.rowIndex="1" GridPane.columnIndex="1" style="-fx-font-size:16px; -fx-font-weight:bold;"/>
+
+            <Label text="Best Sellers:" GridPane.rowIndex="2" GridPane.columnIndex="0" />
+            <ListView fx:id="lvBestSellers" prefHeight="140" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+        </GridPane>
+
+        <!-- Placeholder for charts -->
+        <HBox alignment="CENTER" style="-fx-border-color:#ddd; -fx-border-width:1; -fx-padding:10;">
+            <Label text="(Daily sales chart placeholder)"/>
+        </HBox>
+
+    </VBox>
+</AnchorPane>

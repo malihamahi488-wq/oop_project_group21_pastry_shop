@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.example.com_oop_project_group21_pastryshop.QualityControlOfficer.RecordDefectiveProductsController"
+            prefHeight="450.0" prefWidth="700.0">
+
+    <children>
+        <VBox spacing="10.0" padding="10.0"
+              AnchorPane.topAnchor="0.0"
+              AnchorPane.leftAnchor="0.0"
+              AnchorPane.rightAnchor="0.0"
+              AnchorPane.bottomAnchor="0.0">
+
+            <!-- Header -->
+            <HBox spacing="10.0" alignment="CENTER_LEFT">
+                <Label text="Record Defective Products"
+                       style="-fx-font-size:18px; -fx-font-weight:bold;"/>
+                <Label text="Officer ID:"/>
+                <Label fx:id="lblOfficerId" text="-" />
+                <Pane HBox.hgrow="ALWAYS"/>
+                <Button text="New Entry" onAction="#onNewEntry"/>
+            </HBox>
+
+            <!-- Defective product form -->
+            <GridPane hgap="10.0" vgap="8.0">
+                <columnConstraints>
+                    <ColumnConstraints percentWidth="30"/>
+                    <ColumnConstraints percentWidth="70"/>
+                </columnConstraints>
+
+                <children>
+                    <Label text="Product ID:"
+                           GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                    <TextField fx:id="txtProductId"
+                               promptText="Enter product ID"
+                               GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+                    <Label text="Quantity Defective:"
+                           GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                    <TextField fx:id="txtQuantity"
+                               promptText="e.g. 5"
+                               GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+                    <Label text="Defect Reason:"
+                           GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+                    <TextArea fx:id="txtDefectReason"
+                              promptText="Describe the defect (e.g. packaging damage, expired, etc.)"
+                              wrapText="true"
+                              prefRowCount="4"
+                              GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+                </children>
+            </GridPane>
+
+            <!-- Buttons -->
+            <HBox spacing="10.0" alignment="CENTER_LEFT">
+                <Button text="Save Defective Record" onAction="#onSaveDefectiveRecord"/>
+                <Button text="Clear" onAction="#onClearForm"/>
+            </HBox>
+
+            <!-- Status / info -->
+            <Label fx:id="lblStatus" text="Ready"/>
+
+            <!-- (Optional) simple stock view -->
+            <TitledPane text="Current Stock (demo)" expanded="false">
+                <content>
+                    <TableView fx:id="tblStock" prefHeight="150.0">
+                        <columns>
+                            <TableColumn fx:id="colStockProdId" text="Product ID" prefWidth="80.0"/>
+                            <TableColumn fx:id="colStockProdName" text="Name" prefWidth="200.0"/>
+                            <TableColumn fx:id="colStockQty" text="Quantity" prefWidth="100.0"/>
+                        </columns>
+                    </TableView>
+                </content>
+            </TitledPane>
+
+        </VBox>
+    </children>
+</AnchorPane>

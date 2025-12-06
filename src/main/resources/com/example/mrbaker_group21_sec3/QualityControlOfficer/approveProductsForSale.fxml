@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.example.com_oop_project_group21_pastryshop.QualityControlOfficer.ApproveProductsForSaleController"
+            prefHeight="500.0" prefWidth="900.0">
+
+    <children>
+        <VBox spacing="10.0" padding="10.0"
+              AnchorPane.topAnchor="0.0"
+              AnchorPane.leftAnchor="0.0"
+              AnchorPane.rightAnchor="0.0"
+              AnchorPane.bottomAnchor="0.0">
+
+            <!-- Header -->
+            <HBox spacing="10.0" alignment="CENTER_LEFT">
+                <Label text="Approve Products for Sale"
+                       style="-fx-font-size:18px; -fx-font-weight:bold;"/>
+                <Label text="Officer ID:"/>
+                <Label fx:id="lblOfficerId" text="-" />
+                <Pane HBox.hgrow="ALWAYS"/>
+                <Button text="Reload Pending" onAction="#onReloadPending"/>
+            </HBox>
+
+            <!-- Main content: pending products + details/actions -->
+            <SplitPane dividerPositions="0.45">
+                <!-- Left: list of pending products -->
+                <VBox spacing="5.0">
+                    <Label text="Pending Products"/>
+                    <TableView fx:id="tblProducts" prefHeight="350.0">
+                        <columns>
+                            <TableColumn fx:id="colProdId" text="ID" prefWidth="60.0"/>
+                            <TableColumn fx:id="colProdName" text="Name" prefWidth="200.0"/>
+                            <TableColumn fx:id="colBatch" text="Batch" prefWidth="120.0"/>
+                            <TableColumn fx:id="colQualityStatus" text="Quality" prefWidth="100.0"/>
+                        </columns>
+                    </TableView>
+                </VBox>
+
+                <!-- Right: product details + approve/reject -->
+                <VBox spacing="8.0" padding="0 0 0 10">
+                    <Label text="Product Details"/>
+
+                    <GridPane hgap="10.0" vgap="8.0">
+                        <columnConstraints>
+                            <ColumnConstraints percentWidth="30"/>
+                            <ColumnConstraints percentWidth="70"/>
+                        </columnConstraints>
+
+                        <children>
+                            <Label text="Product ID:"
+                                   GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                            <Label fx:id="lblSelectedProductId"
+                                   text="-"
+                                   GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+                            <Label text="Name:"
+                                   GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                            <Label fx:id="lblSelectedProductName"
+                                   text="-"
+                                   GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+                            <Label text="Batch:"
+                                   GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+                            <Label fx:id="lblSelectedBatch"
+                                   text="-"
+                                   GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+                            <Label text="Quality Status:"
+                                   GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+                            <Label fx:id="lblSelectedQualityStatus"
+                                   text="-"
+                                   GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+                        </children>
+                    </GridPane>
+
+                    <Label text="Notes (optional):"/>
+                    <TextArea fx:id="txtDecisionNotes"
+                              wrapText="true"
+                              prefRowCount="4"/>
+
+                    <HBox spacing="10.0" alignment="CENTER_LEFT">
+                        <Button text="Approve" onAction="#onApprove"/>
+                        <Button text="Reject" onAction="#onReject"/>
+                        <Button text="Clear" onAction="#onClearSelection"/>
+                    </HBox>
+                </VBox>
+            </SplitPane>
+
+            <!-- Status bar -->
+            <Label fx:id="lblStatus" text="Ready"/>
+        </VBox>
+    </children>
+</AnchorPane>

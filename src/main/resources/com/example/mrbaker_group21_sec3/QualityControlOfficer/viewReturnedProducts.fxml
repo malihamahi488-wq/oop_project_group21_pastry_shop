@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.example.com_oop_project_group21_pastryshop.QualityControlOfficer.ViewReturnedProductsController"
+            prefHeight="500.0" prefWidth="900.0">
+
+    <children>
+        <VBox spacing="10.0" padding="10.0"
+              AnchorPane.topAnchor="0.0"
+              AnchorPane.leftAnchor="0.0"
+              AnchorPane.rightAnchor="0.0"
+              AnchorPane.bottomAnchor="0.0">
+
+            <!-- Header -->
+            <HBox spacing="10.0" alignment="CENTER_LEFT">
+                <Label text="Returned Products"
+                       style="-fx-font-size:18px; -fx-font-weight:bold;"/>
+                <Label text="Officer ID:"/>
+                <Label fx:id="lblOfficerId" text="-" />
+                <Pane HBox.hgrow="ALWAYS"/>
+                <Button text="Reload Returns" onAction="#onReloadReturns"/>
+            </HBox>
+
+            <!-- Main area: list + details -->
+            <SplitPane dividerPositions="0.45">
+                <!-- Left: list of returned products -->
+                <VBox spacing="5.0">
+                    <Label text="Return Records"/>
+                    <TableView fx:id="tblReturns" prefHeight="350.0">
+                        <columns>
+                            <TableColumn fx:id="colReturnId" text="Return ID" prefWidth="80.0"/>
+                            <TableColumn fx:id="colProductName" text="Product" prefWidth="200.0"/>
+                            <TableColumn fx:id="colQty" text="Qty" prefWidth="60.0"/>
+                            <TableColumn fx:id="colReturnDate" text="Date" prefWidth="150.0"/>
+                            <TableColumn fx:id="colStatus" text="Status" prefWidth="100.0"/>
+                        </columns>
+                    </TableView>
+                </VBox>
+
+                <!-- Right: detailed information -->
+                <VBox spacing="8.0" padding="0 0 0 10">
+                    <Label text="Return Details"/>
+
+                    <GridPane hgap="10.0" vgap="8.0">
+                        <columnConstraints>
+                            <ColumnConstraints percentWidth="30"/>
+                            <ColumnConstraints percentWidth="70"/>
+                        </columnConstraints>
+
+                        <children>
+                            <Label text="Return ID:"
+                                   GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                            <Label fx:id="lblReturnId"
+                                   text="-"
+                                   GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+                            <Label text="Product ID:"
+                                   GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                            <Label fx:id="lblProductId"
+                                   text="-"
+                                   GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+                            <Label text="Product Name:"
+                                   GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+                            <Label fx:id="lblProductName"
+                                   text="-"
+                                   GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+                            <Label text="Quantity:"
+                                   GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+                            <Label fx:id="lblQuantity"
+                                   text="-"
+                                   GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+
+                            <Label text="Customer Name:"
+                                   GridPane.rowIndex="4" GridPane.columnIndex="0"/>
+                            <Label fx:id="lblCustomerName"
+                                   text="-"
+                                   GridPane.rowIndex="4" GridPane.columnIndex="1"/>
+
+                            <Label text="Return Date:"
+                                   GridPane.rowIndex="5" GridPane.columnIndex="0"/>
+                            <Label fx:id="lblReturnDate"
+                                   text="-"
+                                   GridPane.rowIndex="5" GridPane.columnIndex="1"/>
+
+                            <Label text="Status:"
+                                   GridPane.rowIndex="6" GridPane.columnIndex="0"/>
+                            <Label fx:id="lblStatusDetail"
+                                   text="-"
+                                   GridPane.rowIndex="6" GridPane.columnIndex="1"/>
+                        </children>
+                    </GridPane>
+
+                    <Label text="Return Reason:"/>
+                    <TextArea fx:id="txtReason"
+                              editable="false"
+                              wrapText="true"
+                              prefRowCount="4"/>
+
+                    <Label text="Internal Notes:"/>
+                    <TextArea fx:id="txtInternalNotes"
+                              editable="false"
+                              wrapText="true"
+                              prefRowCount="3"/>
+                </VBox>
+            </SplitPane>
+
+            <!-- Status bar -->
+            <Label fx:id="lblStatus" text="Ready"/>
+        </VBox>
+    </children>
+</AnchorPane>

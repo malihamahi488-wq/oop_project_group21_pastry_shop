@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.example.com_oop_project_group21_pastryshop.BranchManager.MonitorBranchSalesController"
+            prefHeight="600.0" prefWidth="900.0">
+
+    <VBox spacing="16" prefWidth="900" prefHeight="600" AnchorPane.topAnchor="0" AnchorPane.leftAnchor="0"
+          AnchorPane.rightAnchor="0" AnchorPane.bottomAnchor="0" alignment="TOP_CENTER" style="-fx-padding:16;">
+        <!-- Title -->
+        <Label text="Sales Dashboard" style="-fx-font-size:24px; -fx-font-weight:bold;" />
+
+        <!-- Filter row (UIE / UID) -->
+        <HBox spacing="12" alignment="CENTER">
+            <DatePicker fx:id="datePicker" promptText="Select Date" />
+            <ComboBox fx:id="categoryCombo" promptText="Category" prefWidth="180" />
+            <ComboBox fx:id="productCombo" promptText="Product" prefWidth="220" />
+            <Button text="Apply Filters" fx:id="applyFilterBtn" onAction="#onApplyFilter" />
+        </HBox>
+
+        <!-- Main summary (OP) -->
+        <GridPane hgap="24" vgap="12" alignment="CENTER">
+            <columnConstraints>
+                <ColumnConstraints halignment="RIGHT" minWidth="180"/>
+                <ColumnConstraints halignment="LEFT" minWidth="300"/>
+            </columnConstraints>
+
+            <Label text="Total Revenue:" GridPane.rowIndex="0" GridPane.columnIndex="0" />
+            <Label fx:id="totalRevenueLabel" text="0.00" GridPane.rowIndex="0" GridPane.columnIndex="1"
+                   style="-fx-font-weight:bold; -fx-font-size:18px;" />
+
+            <Label text="Total Orders:" GridPane.rowIndex="1" GridPane.columnIndex="0" />
+            <Label fx:id="totalOrdersLabel" text="0" GridPane.rowIndex="1" GridPane.columnIndex="1"
+                   style="-fx-font-weight:bold; -fx-font-size:18px;" />
+
+            <Label text="Best-Selling Product:" GridPane.rowIndex="2" GridPane.columnIndex="0" />
+            <Label fx:id="bestProductLabel" text="N/A" GridPane.rowIndex="2" GridPane.columnIndex="1"
+                   style="-fx-font-weight:bold; -fx-font-size:18px;" />
+        </GridPane>
+
+        <!-- Extra content area (placeholder for charts) -->
+        <HBox alignment="CENTER" prefHeight="260" style="-fx-border-color: #ddd; -fx-border-width:1; -fx-padding:10;">
+            <Label text="(Charts/placeholders go here)" />
+        </HBox>
+
+        <!-- Export buttons (UID) -->
+        <HBox spacing="12" alignment="CENTER">
+            <Button text="Export as PDF" fx:id="exportPdfBtn" onAction="#onExportPdf" />
+            <Button text="Export as Excel" fx:id="exportExcelBtn" onAction="#onExportExcel" />
+            <Button text="Refresh" onAction="#onRefresh" />
+        </HBox>
+    </VBox>
+</AnchorPane>

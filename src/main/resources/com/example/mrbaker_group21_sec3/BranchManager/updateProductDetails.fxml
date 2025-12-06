@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.example.com_oop_project_group21_pastryshop.BranchManager.UpdateProductDetailsController"
+            prefWidth="900.0" prefHeight="600.0">
+
+    <VBox spacing="12" AnchorPane.topAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.bottomAnchor="0" style="-fx-padding:12;">
+        <Label text="Product List / Edit Product" style="-fx-font-size:20px; -fx-font-weight:bold;" />
+
+        <!-- Top: Table of products -->
+        <TableView fx:id="productTable" prefHeight="280.0">
+            <columns>
+                <TableColumn fx:id="colProductId" text="ID" prefWidth="80" />
+                <TableColumn fx:id="colName" text="Name" prefWidth="220" />
+                <TableColumn fx:id="colCategory" text="Category" prefWidth="140" />
+                <TableColumn fx:id="colPrice" text="Price" prefWidth="100" />
+                <TableColumn fx:id="colStock" text="Stock" prefWidth="100" />
+            </columns>
+        </TableView>
+
+        <!-- Middle: Edit form -->
+        <GridPane hgap="10" vgap="10" style="-fx-padding:8;">
+            <columnConstraints>
+                <ColumnConstraints halignment="RIGHT" minWidth="120"/>
+                <ColumnConstraints halignment="LEFT" minWidth="300"/>
+            </columnConstraints>
+
+            <Label text="Product ID:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+            <Label fx:id="lblProductId" text="-" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+            <Label text="Name:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+            <TextField fx:id="tfName" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+            <Label text="Category:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+            <TextField fx:id="tfCategory" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+            <Label text="Price:" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+            <TextField fx:id="tfPrice" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+
+            <Label text="Stock Quantity:" GridPane.rowIndex="4" GridPane.columnIndex="0"/>
+            <TextField fx:id="tfStock" GridPane.rowIndex="4" GridPane.columnIndex="1"/>
+
+            <Label text="Description:" GridPane.rowIndex="5" GridPane.columnIndex="0"/>
+            <TextArea fx:id="taDescription" prefRowCount="3" GridPane.rowIndex="5" GridPane.columnIndex="1"/>
+        </GridPane>
+
+        <!-- Bottom: Buttons -->
+        <HBox spacing="10" alignment="CENTER_RIGHT">
+            <Region HBox.hgrow="ALWAYS"/>
+            <Button text="Edit Selected" fx:id="btnEdit" onAction="#onEditSelected"/>
+            <Button text="Save" fx:id="btnSave" onAction="#onSave" />
+            <Button text="Cancel" fx:id="btnCancel" onAction="#onCancel" />
+            <Button text="Refresh" onAction="#onRefresh" />
+        </HBox>
+    </VBox>
+</AnchorPane>

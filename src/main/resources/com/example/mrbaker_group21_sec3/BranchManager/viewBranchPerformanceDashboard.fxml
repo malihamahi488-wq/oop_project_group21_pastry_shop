@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.chart.*?>
+<?import javafx.geometry.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.example.com_oop_project_group21_pastryshop.BranchManager.ViewBranchPerformanceDashboardController"
+            prefHeight="500.0" prefWidth="800.0">
+
+    <children>
+        <VBox spacing="10.0" padding="10.0"
+              AnchorPane.topAnchor="0.0"
+              AnchorPane.leftAnchor="0.0"
+              AnchorPane.rightAnchor="0.0"
+              AnchorPane.bottomAnchor="0.0">
+
+            <!-- Header -->
+            <HBox spacing="10.0" alignment="CENTER_LEFT">
+                <Label text="Branch Performance Dashboard"
+                       style="-fx-font-size:18px; -fx-font-weight:bold;"/>
+                <Label text="Manager ID:"/>
+                <Label fx:id="lblManagerId" text="-" />
+                <Pane HBox.hgrow="ALWAYS"/>
+                <Button text="Refresh" onAction="#onRefreshDashboard"/>
+            </HBox>
+
+            <!-- Filters -->
+            <HBox spacing="10.0" alignment="CENTER_LEFT">
+                <Label text="Period:"/>
+                <ComboBox fx:id="cbPeriod" prefWidth="140.0"/>
+
+                <Label text="Metric:"/>
+                <ComboBox fx:id="cbMetric" prefWidth="160.0"/>
+
+                <Button text="Apply Filters" onAction="#onApplyFilters"/>
+            </HBox>
+
+            <!-- Charts area -->
+            <SplitPane dividerPositions="0.6">
+                <!-- Line chart for main metric over time -->
+                <VBox spacing="5.0">
+                    <Label fx:id="lblLineChartTitle" text="Performance Over Time"/>
+                    <LineChart fx:id="linePerformance"
+                               prefHeight="300.0" prefWidth="400.0">
+                        <xAxis>
+                            <CategoryAxis label="Period"/>
+                        </xAxis>
+                        <yAxis>
+                            <NumberAxis label="Value"/>
+                        </yAxis>
+                    </LineChart>
+                </VBox>
+
+                <!-- Pie chart for category distribution -->
+                <VBox spacing="5.0" padding="0 0 0 10">
+                    <Label text="Sales by Category"/>
+                    <PieChart fx:id="pieCategory" prefHeight="300.0" prefWidth="300.0"/>
+                </VBox>
+            </SplitPane>
+
+            <!-- Status bar -->
+            <Label fx:id="lblStatus" text="Ready"/>
+        </VBox>
+    </children>
+</AnchorPane>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.example.com_oop_project_group21_pastryshop.BranchManager.AddNewProductController"
+            prefWidth="900.0" prefHeight="600.0">
+
+    <VBox spacing="12" AnchorPane.topAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.bottomAnchor="0"
+          style="-fx-padding:16;">
+        <Label text="Add New Product" style="-fx-font-size:20px; -fx-font-weight:bold;" />
+
+        <!-- Form -->
+        <GridPane hgap="10" vgap="10">
+            <columnConstraints>
+                <ColumnConstraints halignment="RIGHT" minWidth="130"/>
+                <ColumnConstraints halignment="LEFT" minWidth="360"/>
+            </columnConstraints>
+
+            <Label text="Product ID:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+            <TextField fx:id="tfProductId" promptText="Auto or enter ID" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+            <Label text="Name:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+            <TextField fx:id="tfName" promptText="Product name" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+            <Label text="Category:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+            <ComboBox fx:id="cbCategory" promptText="Select category" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+            <Label text="Price:" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+            <TextField fx:id="tfPrice" promptText="e.g., 12.50" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+
+            <Label text="Stock Qty:" GridPane.rowIndex="4" GridPane.columnIndex="0"/>
+            <TextField fx:id="tfStock" promptText="e.g., 20" GridPane.rowIndex="4" GridPane.columnIndex="1"/>
+
+            <Label text="Description:" GridPane.rowIndex="5" GridPane.columnIndex="0"/>
+            <TextArea fx:id="taDescription" prefRowCount="4" promptText="Short product description" GridPane.rowIndex="5" GridPane.columnIndex="1"/>
+        </GridPane>
+
+        <!-- Buttons -->
+        <HBox spacing="10" alignment="CENTER_RIGHT">
+            <Region HBox.hgrow="ALWAYS"/>
+            <Button text="Validate" fx:id="btnValidate" onAction="#onValidate"/>
+            <Button text="Save Product" fx:id="btnSave" onAction="#onSave"/>
+            <Button text="Clear" onAction="#onClear"/>
+        </HBox>
+
+        <!-- Feedback label -->
+        <Label fx:id="lblFeedback" textFill="red" wrapText="true"/>
+    </VBox>
+</AnchorPane>

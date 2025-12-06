@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.example.com_oop_project_group21_pastryshop.BranchManager.TrackTeamActivityController"
+            prefWidth="900.0" prefHeight="600.0">
+
+    <VBox spacing="12" AnchorPane.topAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.bottomAnchor="0" style="-fx-padding:12;">
+        <Label text="Team Activity" style="-fx-font-size:22px; -fx-font-weight:bold;" />
+
+        <!-- Filter / Controls -->
+        <HBox spacing="10" alignment="CENTER_LEFT">
+            <Label text="Search Employee:"/>
+            <TextField fx:id="searchField" promptText="Enter name or ID"/>
+            <Button text="Search" onAction="#onSearch"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Button text="Export PDF" fx:id="exportPdfBtn" onAction="#onExportPdf"/>
+            <Button text="Export Excel" fx:id="exportExcelBtn" onAction="#onExportExcel"/>
+            <Button text="Refresh" onAction="#onRefresh"/>
+        </HBox>
+
+        <!-- Main area: Table and details -->
+        <SplitPane prefHeight="480" dividerPositions="0.65">
+            <!-- Left: TableView -->
+            <AnchorPane>
+                <TableView fx:id="activityTable" prefHeight="480" prefWidth="560" AnchorPane.topAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.bottomAnchor="0">
+                    <columns>
+                        <TableColumn fx:id="colEmployeeId" text="Employee ID" prefWidth="120"/>
+                        <TableColumn fx:id="colName" text="Name" prefWidth="180"/>
+                        <TableColumn fx:id="colLastActivity" text="Last Activity" prefWidth="160"/>
+                        <TableColumn fx:id="colRating" text="Rating" prefWidth="80"/>
+                    </columns>
+                </TableView>
+            </AnchorPane>
+
+            <!-- Right: Details -->
+            <AnchorPane>
+                <VBox spacing="8" style="-fx-padding:8;">
+                    <Label text="Employee Details" style="-fx-font-size:16px; -fx-font-weight:bold;" />
+                    <GridPane hgap="8" vgap="8">
+                        <columnConstraints>
+                            <ColumnConstraints halignment="RIGHT" minWidth="110"/>
+                            <ColumnConstraints halignment="LEFT" minWidth="220"/>
+                        </columnConstraints>
+
+                        <Label text="Employee ID:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                        <Label fx:id="detailEmployeeId" text="-" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+                        <Label text="Name:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                        <Label fx:id="detailName" text="-" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+                        <Label text="Shift Times:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+                        <Label fx:id="detailShifts" text="-" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+                        <Label text="Orders Handled:" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+                        <Label fx:id="detailOrders" text="-" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+
+                        <Label text="Performance Rating:" GridPane.rowIndex="4" GridPane.columnIndex="0"/>
+                        <Label fx:id="detailRating" text="-" GridPane.rowIndex="4" GridPane.columnIndex="1"/>
+
+                        <Label text="Recent Activities:" GridPane.rowIndex="5" GridPane.columnIndex="0"/>
+                        <TextArea fx:id="detailRecent" editable="false" wrapText="true" prefRowCount="6" GridPane.rowIndex="5" GridPane.columnIndex="1"/>
+                    </GridPane>
+
+                    <HBox spacing="8" alignment="CENTER_RIGHT">
+                        <Region HBox.hgrow="ALWAYS"/>
+                        <Button text="Download Report" onAction="#onDownloadReport"/>
+                    </HBox>
+                </VBox>
+            </AnchorPane>
+        </SplitPane>
+    </VBox>
+</AnchorPane>
