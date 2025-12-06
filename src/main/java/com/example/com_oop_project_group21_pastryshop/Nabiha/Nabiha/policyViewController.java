@@ -22,7 +22,7 @@ public class policyViewController
     public TextArea getPolicyTextArea() {
         return policyTextArea;
     }
-    private ArrayList<Policies> policyList;
+    private ArrayList<policies> policyList;
 
     @javafx.fxml.FXML
     public void initialize() {
@@ -32,7 +32,7 @@ public class policyViewController
 
     @javafx.fxml.FXML
     public void postPoliciesOnAction(ActionEvent actionEvent) {
-        Policies newPolicy = new Policies(
+        policies newPolicy = new policies(
 
                 policyTextArea.getText()
 
