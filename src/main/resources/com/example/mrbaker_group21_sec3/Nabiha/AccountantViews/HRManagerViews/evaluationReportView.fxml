@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="653.0" prefWidth="600.0" style="-fx-background-color: #acb25b;" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.oopfinalprojectowncontri.HRManagerControllers.evaluationReportViewController">
+   <children>
+      <Label layoutX="162.0" layoutY="14.0" prefHeight="45.0" prefWidth="262.0" text=" Monthly Employee Evaluation">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="43.0" layoutY="67.0" prefHeight="17.0" prefWidth="144.0" text="Name of the Employee:" />
+      <Label layoutX="43.0" layoutY="102.0" prefHeight="17.0" prefWidth="144.0" text="ID of the Employee:" />
+      <Label layoutX="43.0" layoutY="163.0" prefHeight="17.0" prefWidth="144.0" text="Month Name:" />
+      <Label layoutX="43.0" layoutY="133.0" prefHeight="17.0" prefWidth="144.0" text="Designation:" />
+      <Label layoutX="43.0" layoutY="193.0" prefHeight="17.0" prefWidth="144.0" text="Performace Rating :" />
+      <TextField fx:id="employeeNameTextField" layoutX="173.0" layoutY="63.0" prefHeight="25.0" prefWidth="398.0" />
+      <TextField fx:id="IDTextField" layoutX="151.0" layoutY="98.0" />
+      <TextField fx:id="DesignationTextField" layoutX="113.0" layoutY="129.0" />
+      <ComboBox fx:id="monthNameComboBox" layoutX="121.0" layoutY="159.0" prefWidth="150.0" />
+      <RadioButton fx:id="poorRadioButton" layoutX="153.0" layoutY="193.0" mnemonicParsing="false" text="Poor" />
+      <RadioButton fx:id="badRadioButton" layoutX="206.0" layoutY="193.0" mnemonicParsing="false" text="Bad" />
+      <RadioButton fx:id="goodRadioButton" layoutX="257.0" layoutY="193.0" mnemonicParsing="false" text="Good" />
+      <RadioButton fx:id="veryGoodRadioButton" layoutX="318.0" layoutY="193.0" mnemonicParsing="false" text="Very Good" />
+      <RadioButton fx:id="excellentRadioButton" layoutX="408.0" layoutY="193.0" mnemonicParsing="false" text="Excellent" />
+      <TableView fx:id="evaluationTableView" layoutX="20.0" layoutY="351.0" prefHeight="266.0" prefWidth="545.0">
+        <columns>
+          <TableColumn fx:id="nameTableColumn" prefWidth="134.0" text="Name" />
+          <TableColumn fx:id="IDTableColumn" prefWidth="99.0" text="ID" />
+            <TableColumn fx:id="DesignationTableColumn" prefWidth="88.0" text="Designation" />
+            <TableColumn fx:id="monthNameTableColumn" prefWidth="115.0" text="Month " />
+            <TableColumn fx:id="RatingTableColumn" prefWidth="108.0" text=" Rate" />
+        </columns>
+      </TableView>
+      <Button layoutX="292.0" layoutY="223.0" mnemonicParsing="false" onAction="#AddToMonthlyEvaluationListOnAction" prefHeight="25.0" prefWidth="278.0" text="Save" />
+      <Line endX="295.0" layoutX="282.0" layoutY="269.0" startX="-257.0" />
+      <Label layoutX="81.0" layoutY="290.0" prefHeight="45.0" prefWidth="427.0" text="             Monthly Employee Evaluation list">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

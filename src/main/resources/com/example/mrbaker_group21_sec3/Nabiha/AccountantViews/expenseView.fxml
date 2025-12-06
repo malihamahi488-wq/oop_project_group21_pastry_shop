@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="461.0" prefWidth="600.0" style="-fx-background-color: #acb25b;" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.oopfinalprojectowncontri.AccountantControllers.expenseViewController">
+   <children>
+      <Label layoutX="200.0" layoutY="14.0" prefHeight="31.0" prefWidth="173.0" text="Creat Expense List">
+         <font>
+            <Font name="System Bold Italic" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="55.0" layoutY="71.0" text="Month Name :" />
+      <Label layoutX="322.0" layoutY="71.0" prefHeight="17.0" prefWidth="34.0" text="Year :" />
+      <Label layoutX="55.0" layoutY="107.0" text="Total Expense" />
+      <Button layoutX="387.0" layoutY="149.0" mnemonicParsing="false" onAction="#submitOnAction" prefHeight="25.0" prefWidth="112.0" text="submit" />
+      <TableView fx:id="expenseTableView" layoutX="28.0" layoutY="231.0" prefHeight="200.0" prefWidth="531.0">
+        <columns>
+          <TableColumn fx:id="monthTableColumn" prefWidth="187.0" text="month" />
+          <TableColumn fx:id="yearTableColumn" prefWidth="152.0" text="year" />
+            <TableColumn fx:id="totalExpenseTableColumn" prefWidth="191.0" text="total expense" />
+        </columns>
+      </TableView>
+      <ComboBox fx:id="monthComboBox" layoutX="137.0" layoutY="67.0" prefWidth="150.0" />
+      <TextField fx:id="yearTextField" layoutX="356.0" layoutY="67.0" />
+      <TextField fx:id="totaExpenseTextField" layoutX="138.0" layoutY="103.0" />
+   </children>
+</AnchorPane>
