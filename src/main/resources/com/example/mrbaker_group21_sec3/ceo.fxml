@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="907.0" prefWidth="1577.0" style="-fx-background-color: gray;" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.mrbaker_group21_sec3.ceoController">
+   <children>
+      <TableView fx:id="employeeManagementTableViewfxid" layoutX="17.0" layoutY="97.0" prefHeight="200.0" prefWidth="573.0">
+        <columns>
+          <TableColumn fx:id="employeenameCol" prefWidth="197.60004043579102" text="Employee Name" />
+          <TableColumn fx:id="postCol" prefWidth="71.99992370605469" text="Post" />
+            <TableColumn fx:id="contactCol" prefWidth="147.199951171875" text="Contact" />
+            <TableColumn fx:id="addressCol" prefWidth="160.0" text="Address" />
+        </columns>
+      </TableView>
+      <TextField fx:id="employeeAddressTextFieldfxid" layoutX="653.0" layoutY="245.0" />
+      <TextField fx:id="employeeNameTextFieldfxid" layoutX="653.0" layoutY="111.0" />
+      <TextField fx:id="employeePostTextFieldfxid" layoutX="653.0" layoutY="158.0" />
+      <TextField fx:id="employeeContactTextFieldfxid" layoutX="653.0" layoutY="205.0" />
+      <Button layoutX="676.0" layoutY="284.0" mnemonicParsing="false" onAction="#addEmployeeOnActionButton" text="Add Employee" />
+      <Label layoutX="240.0" layoutY="68.0" text="Employee Management" />
+      <Label layoutX="278.0" text="CEO Dashbord">
+         <font>
+            <Font size="31.0" />
+         </font>
+      </Label>
+      <Label layoutX="240.0" layoutY="333.0" text="Budget Requests" />
+      <TableView fx:id="budgetRequestTableViewfxid" layoutX="16.0" layoutY="362.0" prefHeight="200.0" prefWidth="574.0">
+        <columns>
+          <TableColumn fx:id="itemNameCol" prefWidth="155.20001602172852" text="Item Name" />
+          <TableColumn fx:id="costCol" prefWidth="110.40000915527344" text="Cost" />
+            <TableColumn fx:id="supplierCol" prefWidth="167.199951171875" text="Supplier" />
+            <TableColumn fx:id="statusCol" prefWidth="143.20001220703125" text="Status" />
+        </columns>
+      </TableView>
+      <Button layoutX="627.0" layoutY="420.0" mnemonicParsing="false" onAction="#approveBudgetOnActionButton" text="Approve" />
+      <Button layoutX="629.0" layoutY="487.0" mnemonicParsing="false" onAction="#rejectBudgetOnActionButton" text="Reject" />
+      <Label layoutX="607.0" layoutY="115.0" text="Name" />
+      <Label layoutX="611.0" layoutY="162.0" text="post" />
+      <Label layoutX="602.0" layoutY="209.0" text="Contact" />
+      <Label layoutX="605.0" layoutY="249.0" text="Address" />
+      <TableView fx:id="branchRequestTableViewfxid" layoutX="13.0" layoutY="639.0" prefHeight="200.0" prefWidth="582.0">
+        <columns>
+          <TableColumn fx:id="locationCol" prefWidth="131.20001602172852" text="Location" />
+          <TableColumn fx:id="managerNameCol" prefWidth="127.19999694824219" text="Manager Name" />
+            <TableColumn fx:id="requiredBudgetCol" prefWidth="156.79998779296875" text="Required Budget" />
+            <TableColumn fx:id="notesCol" prefWidth="168.79998779296875" text="Notes" />
+        </columns>
+      </TableView>
+      <Button layoutX="608.0" layoutY="694.0" mnemonicParsing="false" onAction="#approveBranchOnAction" text="Approve" />
+      <Button layoutX="614.0" layoutY="752.0" mnemonicParsing="false" onAction="#rejectBranchOnAction" text="Reject" />
+      <Label layoutX="240.0" layoutY="689.0" />
+      <AnchorPane layoutX="747.0" layoutY="500.0" prefHeight="362.0" prefWidth="672.0">
+         <children>
+            <ComboBox fx:id="downloadMathodComboBox" layoutX="487.0" layoutY="96.0" prefWidth="150.0" />
+            <Button layoutX="501.0" layoutY="155.0" mnemonicParsing="false" onAction="#downloadReportOnActionButton" text="Download Report" />
+            <Label layoutX="270.0" layoutY="6.0" text="Financial Reports" />
+            <TableView fx:id="financialReportTableViewfxid" layoutX="31.0" layoutY="36.0" prefHeight="200.0" prefWidth="442.0">
+              <columns>
+                <TableColumn fx:id="incomCol" prefWidth="133.59995079040527" text="Income" />
+                <TableColumn fx:id="expenceCol" prefWidth="151.20004272460938" text="Expences" />
+                  <TableColumn fx:id="profitlossCol" prefWidth="154.4000244140625" text="Profit/Loss" />
+              </columns>
+            </TableView>
+         </children>
+      </AnchorPane>
+      <Label layoutX="260.0" layoutY="586.0" text="Branch Requests" />
+      <Label fx:id="outputlableFxid" layoutX="841.0" layoutY="181.0" prefHeight="177.0" prefWidth="351.0" style="-fx-background-color: white;" text="output" />
+   </children>
+</AnchorPane>
